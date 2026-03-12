@@ -1,0 +1,439 @@
+/* Styling OneUI Samsung Ultra - Versi Heboh & Dinamis */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Samsung One', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    background: linear-gradient(125deg, #667eea 0%, #764ba2 30%, #6b8cff 70%, #a855f7 100%);
+    background-size: 400% 400%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 16px;
+    animation: gradientBG 12s ease infinite;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Efek partikel background */
+body::before {
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 25%),
+        radial-gradient(circle at 40% 80%, rgba(255,215,0,0.1) 0%, transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(255,255,255,0.1) 0%, transparent 20%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Animasi gradient background */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Container utama dengan efek premium */
+.card {
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 40px 32px;
+    border-radius: 48px;
+    box-shadow: 
+        0 40px 70px -15px rgba(0, 0, 0, 0.4),
+        0 20px 40px -12px rgba(103, 58, 183, 0.4),
+        inset 0 1px 3px rgba(255, 255, 255, 0.9),
+        0 0 0 2px rgba(255, 255, 255, 0.3) inset;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateX(2deg) rotateY(1deg);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    z-index: 2;
+    animation: floatCard 6s ease-in-out infinite;
+}
+
+/* Efek floating */
+@keyframes floatCard {
+    0%, 100% { transform: perspective(1000px) rotateX(2deg) rotateY(1deg) translateY(0px); }
+    50% { transform: perspective(1000px) rotateX(1deg) rotateY(0deg) translateY(-10px); }
+}
+
+.card:hover {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 50px 80px -15px rgba(103, 58, 183, 0.6),
+        0 30px 50px -12px rgba(0, 0, 0, 0.4),
+        inset 0 2px 5px rgba(255, 255, 255, 0.9),
+        0 0 0 4px rgba(255, 215, 0, 0.3) inset;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Efek border glow */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, 
+        #ff6b6b, #feca57, #ff9f43, #48dbfb, 
+        #1dd1a1, #f368e0, #ff9ff3, #54a0ff
+    );
+    border-radius: 50px;
+    z-index: -1;
+    animation: borderGlow 3s linear infinite;
+    background-size: 400% 400%;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+@keyframes borderGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Header utama dengan efek spektakuler */
+h1 {
+    font-size: 46px;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: -1px;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, 
+        #ff0080, #ff8c00, #40e0d0, #ff0080
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    padding-bottom: 25px;
+    animation: gradientText 5s ease infinite;
+    text-shadow: 
+        0 0 20px rgba(255,0,128,0.3),
+        0 0 40px rgba(255,140,0,0.2);
+    transform: scale(1);
+    transition: transform 0.3s;
+}
+
+h1:hover {
+    transform: scale(1.05);
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes gradientText {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes shake {
+    0%, 100% { transform: scale(1.05) rotate(0deg); }
+    25% { transform: scale(1.05) rotate(2deg); }
+    75% { transform: scale(1.05) rotate(-2deg); }
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 5px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        #ff0080, 
+        #ff8c00, 
+        #40e0d0, 
+        #ff0080, 
+        transparent
+    );
+    border-radius: 5px;
+    animation: widthPulse 2s ease-in-out infinite;
+}
+
+@keyframes widthPulse {
+    0%, 100% { width: 80%; left: 10%; }
+    50% { width: 90%; left: 5%; }
+}
+
+/* Paragraf dengan efek interaktif */
+p {
+    font-size: 19px;
+    line-height: 1.8;
+    color: #2c3e50;
+    margin: 28px 0;
+    font-weight: 500;
+    text-align: justify;
+    padding: 0 15px;
+    position: relative;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+}
+
+p:hover {
+    padding: 0 25px;
+    border-left: 3px solid #ff0080;
+    border-right: 3px solid #40e0d0;
+    color: #1a2639;
+    transform: translateX(5px);
+    background: linear-gradient(90deg, 
+        rgba(255,0,128,0.05), 
+        transparent, 
+        rgba(64,224,208,0.05)
+    );
+    border-radius: 10px;
+}
+
+/* Garis pemisah dengan animasi */
+hr {
+    border: none;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        #ff0080, 
+        #ff8c00, 
+        #40e0d0, 
+        #ff0080, 
+        #ff8c00, 
+        transparent
+    );
+    margin: 30px 0;
+    background-size: 300% 300%;
+    animation: gradientMove 3s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+hr::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255,255,255,0.5), 
+        transparent
+    );
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    100% { left: 100%; }
+}
+
+/* Greeting dengan efek spektakuler */
+small {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 18px;
+    color: white;
+    margin-top: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #667eea, #764ba2, #6b8cff, #a855f7);
+    background-size: 300% 300%;
+    border-radius: 60px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 
+        0 10px 25px rgba(102, 126, 234, 0.5),
+        0 0 0 3px rgba(255, 255, 255, 0.2),
+        inset 0 2px 5px rgba(255,255,255,0.5);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    animation: gradientBG 3s ease infinite;
+}
+
+small::before {
+    content: '🚀';
+    font-size: 24px;
+    animation: rocketFly 1s ease infinite;
+    filter: drop-shadow(0 0 5px gold);
+}
+
+small::after {
+    content: '💫';
+    font-size: 24px;
+    animation: starTwinkle 1s ease infinite;
+    filter: drop-shadow(0 0 5px cyan);
+}
+
+@keyframes rocketFly {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(5deg); }
+}
+
+@keyframes starTwinkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.3); }
+}
+
+small:hover {
+    transform: scale(1.1) rotate(2deg);
+    background: linear-gradient(135deg, #764ba2, #667eea, #a855f7, #6b8cff);
+    background-size: 300% 300%;
+    box-shadow: 
+        0 20px 35px rgba(102, 126, 234, 0.7),
+        0 0 0 5px rgba(255, 255, 255, 0.5),
+        0 0 30px #ffd700;
+    border-color: gold;
+    animation: gradientBG 1.5s ease infinite;
+}
+
+small:active {
+    transform: scale(0.95) rotate(-2deg);
+}
+
+/* Efek ripple saat klik */
+small::before {
+    content: '🚀';
+    position: relative;
+    z-index: 2;
+}
+
+small::after {
+    content: '💫';
+    position: relative;
+    z-index: 2;
+}
+
+/* Efek ripple background */
+small span {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Responsive design dengan sentuhan spesial */
+@media (max-width: 640px) {
+    .card {
+        padding: 30px 20px;
+        border-radius: 36px;
+    }
+    
+    h1 {
+        font-size: 36px;
+    }
+    
+    p {
+        font-size: 17px;
+        padding: 0 10px;
+    }
+    
+    small {
+        font-size: 16px;
+        padding: 14px 28px;
+    }
+    
+    small::before,
+    small::after {
+        font-size: 20px;
+    }
+}
+
+/* Animasi fade in untuk elemen */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInScale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Efek partikel tambahan */
+.particle {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    animation: float 8s infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+        transform: translateY(-30px) translateX(-10px);
+    }
+    75% {
+        transform: translateY(-20px) translateX(5px);
+    }
+}
+
+/* Selection style */
+::selection {
+    background: linear-gradient(135deg, #ff0080, #ff8c00);
+    color: white;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Loading animation (opsional) */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Efek 3D pada hover */
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}

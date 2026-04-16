@@ -1,8 +1,21 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite' 
+import tailwindcss from '@tailwindcss/vite'
+import { resolve } from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        pertemuan2: resolve(__dirname, 'pertemuan-2.html'),
+        pertemuan3: resolve(__dirname, 'pertemuan-3.html'),
+        pertemuan4: resolve(__dirname, 'pertemuan-4.html'),
+        pertemuan5: resolve(__dirname, 'pertemuan-5.html'),
+        modulpertemuan5: resolve(__dirname, 'modul-pertemuan-5.html'),
+      },
+    },
+  },
 })

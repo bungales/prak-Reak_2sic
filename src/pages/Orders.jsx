@@ -5,7 +5,7 @@ export default function Orders() {
 
   return (
      <div id="dashboard-container">
-          <PageHeader />
+          <PageHeader title="Orders" breadcrumb="Orders" />
           <p>Ini Halaman Orders</p>
         </div>
       );

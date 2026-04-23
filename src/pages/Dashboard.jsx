@@ -86,11 +86,8 @@ export default function Dashboard() {
 
   return (
     <div id="dashboard-container">
-
-      {/* === DARI MODUL: PageHeader (judul + breadcrumb + tombol filter) === */}
       <PageHeader />
 
-      {/* === DARI MODUL: Grid 4 Stat Card === */}
       <div id="dashboard-grid" className="p-5 grid sm:grid-cols-2 md:grid-cols-4 gap-4">
         {stats.map((s) => (
           <StatCard key={s.id} {...s} />

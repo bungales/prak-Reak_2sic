@@ -1,23 +1,29 @@
-import { FaCalendarAlt, FaChevronDown } from "react-icons/fa";
+export default function PageHeader({ title, breadcrumb, children }) {
+  const crumbs = Array.isArray(breadcrumb) ? breadcrumb : [breadcrumb];
 
-export default function PageHeader(props) {
   return (
     <div id="pageheader-container" className="flex items-center justify-between p-4">
       <div id="pageheader-left" className="flex flex-col">
-        <span id="page-title" className="text-3xl font-semibold">{props.title}</span>
+        <span id="page-title" className="text-3xl font-semibold">{title}</span>
         <div id="breadcrumb-links" className="flex items-center font-medium space-x-2 mt-2">
-          <span id="breadcrumb-home" className="text-gray-500">Home</span>
-          <span id="breadcrumb-separator" className="text-gray-500">/</span>
-          <span id="breadcrumb-current" className="text-gray-500">{props.breadcrumb}</span>
+          {crumbs.map((crumb, index) => (
+            <span key={index} className="flex items-center space-x-2">
+              {index > 0 && <span className="text-gray-500">/</span>}
+              <span
+                id={`breadcrumb-${index}`}
+                className={index === crumbs.length - 1 ? "text-gray-800" : "text-gray-500"}
+              >
+                {crumb}
+              </span>
+            </span>
+          ))}
         </div>
       </div>
-      <div id="action-button">
-        <button id="add-button" className="bg-hijau text-white px-4 py-2 rounded-lg flex items-center space-x-2">
-          <FaCalendarAlt />
-          <span>Filter Periode</span>
-          <FaChevronDown className="text-xs" />
-        </button>
-      </div>
+      {children && (
+        <div id="pageheader-actions">
+          {children}
+        </div>
+      )}
     </div>
   );
 }

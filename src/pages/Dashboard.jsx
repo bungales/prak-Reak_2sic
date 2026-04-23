@@ -86,7 +86,7 @@ export default function Dashboard() {
 
   return (
     <div id="dashboard-container">
-      <PageHeader />
+      <PageHeader title="Dashboard" breadcrumb={["Home", "Dashboard"]} />
 
       <div id="dashboard-grid" className="p-5 grid sm:grid-cols-2 md:grid-cols-4 gap-4">
         {stats.map((s) => (

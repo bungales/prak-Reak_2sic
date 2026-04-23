@@ -1,5 +1,5 @@
 import { MdDashboard, MdFoodBank, MdFoodBank as MdFoodDetail } from "react-icons/md";
-import { FaListAlt, FaFileAlt, FaUser, FaChartBar, FaStar, FaUserCircle, FaPlus } from "react-icons/fa";
+import { FaListAlt, FaFileAlt, FaUser, FaChartBar, FaStar, FaUserCircle, FaPlus, FaExclamationTriangle, FaLock, FaBan } from "react-icons/fa";
 import { BiCalendar } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
 
@@ -44,40 +44,22 @@ export default function Sidebar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/analytics" id="menu-5" className={menuClass}>
-              <FaChartBar className="mr-4 text-xl" />
-              <span>Analytics</span>
+            <NavLink to="/error-400" id="menu-5" className={menuClass}>
+              <FaExclamationTriangle className="mr-4 text-xl" />
+              <span>Error 400</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to="/reviews" id="menu-6" className={menuClass}>
-              <FaStar className="mr-4 text-xl" />
-              <span>Reviews</span>
+            <NavLink to="/error-401" id="menu-6" className={menuClass}>
+              <FaLock className="mr-4 text-xl" />
+              <span>Error 401</span>
             </NavLink>
           </li>
           <li>
-            <Link id="menu-7" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200">
-              <MdFoodBank className="mr-4 text-xl" />
-              <span>Foods</span>
-            </Link>
-          </li>
-          <li>
-            <Link id="menu-8" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200">
-              <MdFoodDetail className="mr-4 text-xl" />
-              <span>Food Detail</span>
-            </Link>
-          </li>
-          <li>
-            <Link id="menu-9" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200">
-              <FaUserCircle className="mr-4 text-xl" />
-              <span>Customer Detail</span>
-            </Link>
-          </li>
-          <li>
-            <Link id="menu-10" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200">
-              <BiCalendar className="mr-4 text-xl" />
-              <span>Calendar</span>
-            </Link>
+            <NavLink to="/error-403" id="menu-7" className={menuClass}>
+              <FaBan className="mr-4 text-xl" />
+              <span>Error 403</span>
+            </NavLink>
           </li>
         </ul>
       </div>

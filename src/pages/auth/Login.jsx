@@ -6,10 +6,8 @@ import { ImSpinner2 } from "react-icons/im";
 
 export default function Login() {
   const navigate = useNavigate();
-
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
   const [dataForm, setDataForm] = useState({
     email: "",
     password: "",
@@ -17,7 +15,6 @@ export default function Login() {
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
-
     setDataForm({
       ...dataForm,
       [name]: value,

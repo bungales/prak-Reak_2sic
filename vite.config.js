@@ -14,7 +14,6 @@ export default defineConfig({
         pertemuan3: resolve(__dirname, 'pertemuan-3.html'),
         pertemuan4: resolve(__dirname, 'pertemuan-4.html'),
         pertemuan5: resolve(__dirname, 'pertemuan-5.html'),
-        modulpertemuan5: resolve(__dirname, 'modul-pertemuan-5.html'),
       },
     },
   },

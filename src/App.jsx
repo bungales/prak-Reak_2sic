@@ -4,44 +4,44 @@ import AuthLayout from "./layouts/AuthLayout";
 import Login from "./pages/auth/Login";
 import React, { Suspense } from "react";
 import Loading from "./components/Loading";
+import Components from "./pages/Components";
 
 const MainLayout = React.lazy(() => import("./layouts/MainLayout"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
-const Orders = React.lazy(() => import("./pages/Orders"))
-const Customers = React.lazy(() => import("./pages/Customers"))
-const NotFound= React.lazy(() => import("./pages/NotFound"))
-const Register = React.lazy(() => import("./pages/auth/Register"))
-const Forgot= React.lazy(() => import("./pages/auth/Forgot"))
+const Orders = React.lazy(() => import("./pages/Orders"));
+const Customers = React.lazy(() => import("./pages/Customers"));
+const NotFound = React.lazy(() => import("./pages/NotFound"));
+const Register = React.lazy(() => import("./pages/auth/Register"));
+const Forgot = React.lazy(() => import("./pages/auth/Forgot"));
 const Error400 = React.lazy(() => import("./pages/Error400"));
 const Error401 = React.lazy(() => import("./pages/Error401"));
 const Error403 = React.lazy(() => import("./pages/Error403"));
 const Products = React.lazy(() => import("./pages/Products"));
 const ProductDetail = React.lazy(() => import("./pages/ProductDetail"));
 
-
-export default function App(){
+export default function App() {
   return (
-    	<Suspense fallback={<Loading />}>
-         <Routes>
-      <Route element={<MainLayout/>}>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/customers" element={<Customers />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<ProductDetail />} />
-        <Route path="/error-400" element={<Error400 />} />
-        <Route path="/error-401" element={<Error401 />} />
-        <Route path="/error-403" element={<Error403 />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
+    <Suspense fallback={<Loading />}>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/customers" element={<Customers />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/error-400" element={<Error400 />} />
+          <Route path="/error-401" element={<Error401 />} />
+          <Route path="/error-403" element={<Error403 />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/components" element={<Components />} />
+        </Route>
 
-      <Route element={<AuthLayout/>}>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/forgot" element={<Forgot />} />
-      </Route>
-    </Routes>
-      </Suspense>
-   
-  )
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot" element={<Forgot />} />
+        </Route>
+      </Routes>
+    </Suspense>
+  );
 }

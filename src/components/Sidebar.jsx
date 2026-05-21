@@ -30,13 +30,19 @@ export default function Sidebar() {
               <span>Dashboard</span>
             </NavLink>
           </li>
+          
           <li>
             <NavLink to="/orders" id="menu-2" className={menuClass}>
               <FaListAlt className="mr-4 text-xl" />
               <span>Orders </span>
             </NavLink>
           </li>
-        
+          <li>
+            <NavLink to="/components" id="menu-3" className={menuClass}>
+              <FaListAlt className="mr-4 text-xl" />
+              <span>Components</span>
+            </NavLink>
+          </li>
           <li>
             <NavLink to="/customers" id="menu-4" className={menuClass}>
               <FaUser className="mr-4 text-xl" />

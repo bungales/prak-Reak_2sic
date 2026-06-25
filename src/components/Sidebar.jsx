@@ -1,5 +1,5 @@
 import { MdDashboard, MdFoodBank, MdFoodBank as MdFoodDetail, MdInventory } from "react-icons/md";
-import { FaListAlt, FaFileAlt, FaUser, FaChartBar, FaStar, FaUserCircle, FaPlus, FaExclamationTriangle, FaLock, FaBan } from "react-icons/fa";
+import { FaListAlt, FaFileAlt, FaUser, FaChartBar, FaStar, FaUserCircle, FaPlus, FaExclamationTriangle, FaLock, FaBan, FaMedal } from "react-icons/fa";
 import { BiCalendar } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
 
@@ -47,6 +47,12 @@ export default function Sidebar() {
             <NavLink to="/customers" id="menu-4" className={menuClass}>
               <FaUser className="mr-4 text-xl" />
               <span>Customer</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/crm" id="menu-crm" className={menuClass}>
+              <FaMedal className="mr-4 text-xl" />
+              <span>CRM Members</span>
             </NavLink>
           </li>
           <li>

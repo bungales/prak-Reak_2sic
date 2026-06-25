@@ -19,6 +19,7 @@ const Error403 = React.lazy(() => import("./pages/Error403"));
 const Products = React.lazy(() => import("./pages/Products"));
 const ProductDetail = React.lazy(() => import("./pages/ProductDetail"));
 const FiturXyz = React.lazy(() => import("./pages/FiturXYZ"));
+const CRM = React.lazy(() => import("./pages/CRM"));
 export default function App() {
   return (
     <Suspense fallback={<Loading />}>
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/components" element={<Components />} />
           <Route path="/fitur-xyz" element={<FiturXyz />} />
+          <Route path="/crm" element={<CRM />} />
         </Route>
 
         <Route element={<AuthLayout />}>
